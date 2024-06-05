@@ -1,3 +1,5 @@
+
+
 let userTitle = document.getElementById("usertitle");
 let userLocation = document.getElementById("userlocation");
 let userJobs = document.getElementById("userjobs");
@@ -97,6 +99,8 @@ const jobs = [
 ];
 
 function giveJobs(title, location) {
+    jobsArray = [];
+   
   for (let i = 0; i < jobs.length; i++) {
     if (
       jobs[i].title.toLowerCase().includes(title) &&
@@ -112,7 +116,7 @@ function giveJobs(title, location) {
   
     }for(let i = 0; i < jobsArray.length; i++) {
       jobGiven = document.createElement("li");
-      jobGiven.innerText = jobsArray[i].title + jobsArray[i].location;
+      jobGiven.innerText = jobsArray[i].title +  jobsArray[i].location;
       userJobs.append(jobGiven);
   } 
   
@@ -121,5 +125,8 @@ function giveJobs(title, location) {
 
 btn.addEventListener("click", function() {
   giveJobs(userTitle.value, userLocation.value);
-});
+  btn.classList.add("buttonclicked");
+  
+  
 
+});
